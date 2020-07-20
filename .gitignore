@@ -1,0 +1,6 @@
+.DS_Store
+*~
+*venv*/
+chromedriver
+*.txt
+*.log
