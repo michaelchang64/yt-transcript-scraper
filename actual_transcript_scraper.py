@@ -4,6 +4,7 @@ import os
 from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
+from webdriver_manager.chrome import ChromeDriverManager
 from youtube_transcript_api import YouTubeTranscriptApi
 
 videos_list = []
@@ -19,7 +20,8 @@ user_agent = {'User-agent': 'Mozilla/5.0'}
 for url in urls:
     options = webdriver.ChromeOptions()
     options.add_argument('-headless')
-    driver = webdriver.Chrome('./chromedriver', options=options)
+    driver = webdriver.Chrome(ChromeDriverManager().install, options=options)
+
     driver.get(url)
 
     time.sleep(1)
